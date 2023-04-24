@@ -29,7 +29,14 @@ public class ContaCorrente {
         this.titular = titular;
         this.dataAbertura = new Date();
         this.logado = false;
+    }
 
+    public boolean isLogado() {
+        return logado;
+    }
+
+    public void setLogado(boolean logado) {
+        this.logado = logado;
     }
 
     public double getSaldo() {
@@ -66,15 +73,14 @@ public class ContaCorrente {
     }
 
     public boolean sacar(double valor) {
-        if (this.saldo < valor) {
-            return false;
-        } else {
-            this.saldo = this.saldo - valor;
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
             return true;
         }
+        return false;
     }
 
     public double obterSaldo() {
-        return getSaldo();
+        return saldo;
     }
 }

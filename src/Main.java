@@ -17,7 +17,17 @@ public class Main {
                 break;
 
             case "2":
-                atm.logar();
+                ContaCorrente contaCorrente = atm.logar();
+                System.out.println("Digite a operacao:\n 1.Saldo\n2.Sacar");
+                String operacao = s.nextLine();
+                switch (operacao){
+                    case "1":
+                        atm.saldo();
+                        break;
+                    case "2":
+                        atm.realizarSaque();
+                        break;
+                }
                 break;
 
         }

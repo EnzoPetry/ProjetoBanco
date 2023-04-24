@@ -15,9 +15,25 @@ public class Banco {
     private int numeroConta;
     private int digito = new Random().nextInt(10);
     private final String theKeeper = "contas.json";
+    private ContaCorrente contaLogada;
+
+    public ContaCorrente getContaLogada() {
+        return contaLogada;
+    }
+
+    public void setContaLogada(ContaCorrente contaLogada) {
+        this.contaLogada = contaLogada;
+    }
 
     private boolean logado = false;
 
+    public boolean isLogado() {
+        return logado;
+    }
+
+    public void setLogado(boolean logado) {
+        this.logado = logado;
+    }
 
     public Banco(Map<String, ContaCorrente> contas) {
         this.contas = contas;
@@ -78,6 +94,7 @@ public class Banco {
                 Type type = new TypeToken<ContaCorrente>() {}.getType();
                 ContaCorrente conta = gson.fromJson(line, type);
                 if (conta.getAgencia() == agencia && conta.getNumeroConta() == numeroConta && conta.getDigito() ==digito && conta.getSenha().equals(senha)) {
+                    setContaLogada(conta);
                     logado = true;
                     return true;
                 }
