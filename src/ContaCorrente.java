@@ -1,4 +1,13 @@
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 
 public class ContaCorrente {
     private double saldo;
@@ -8,8 +17,10 @@ public class ContaCorrente {
     private Date dataAbertura;
     private String senha;
     private Pessoa titular;
+    private boolean logado;
 
-    public ContaCorrente(int agencia, int numeroConta,int digito, Pessoa titular, String senha) {
+
+    public ContaCorrente(int agencia, int numeroConta, int digito, Pessoa titular, String senha) {
         this.saldo = 0.0;
         this.agencia = agencia;
         this.numeroConta = numeroConta;
@@ -17,6 +28,8 @@ public class ContaCorrente {
         this.senha = senha;
         this.titular = titular;
         this.dataAbertura = new Date();
+        this.logado = false;
+
     }
 
     public double getSaldo() {
@@ -47,4 +60,21 @@ public class ContaCorrente {
         return titular;
     }
 
+    public boolean deposito(double valor) {
+        this.saldo = this.saldo + valor;
+        return true;
+    }
+
+    public boolean sacar(double valor) {
+        if (this.saldo < valor) {
+            return false;
+        } else {
+            this.saldo = this.saldo - valor;
+            return true;
+        }
+    }
+
+    public double obterSaldo() {
+        return getSaldo();
+    }
 }

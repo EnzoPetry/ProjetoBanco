@@ -16,6 +16,8 @@ public class Banco {
     private int digito = new Random().nextInt(10);
     private final String theKeeper = "contas.json";
 
+    private boolean logado = false;
+
 
     public Banco(Map<String, ContaCorrente> contas) {
         this.contas = contas;
@@ -67,5 +69,22 @@ public class Banco {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public boolean logar(int agencia, int numeroConta, int digito, String senha) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(theKeeper))) {
+            String line;
+            Gson gson = new Gson();
+            while ((line = reader.readLine()) != null) {
+                Type type = new TypeToken<ContaCorrente>() {}.getType();
+                ContaCorrente conta = gson.fromJson(line, type);
+                if (conta.getAgencia() == agencia && conta.getNumeroConta() == numeroConta && conta.getDigito() ==digito && conta.getSenha().equals(senha)) {
+                    logado = true;
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
