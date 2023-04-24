@@ -6,8 +6,6 @@ public class Main {
         Map<String, ContaCorrente> contas = new HashMap<>();
         Banco banco = new Banco(contas);
         ATM atm = new ATM(banco);
-
-        atm.abrirConta();
         System.out.println("Isso é um teste: \n");
         atm.abrirConta();
     }
