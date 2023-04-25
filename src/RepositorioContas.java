@@ -6,38 +6,36 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class Banco {
-    private Map<String, ContaCorrente> contas;
+public class RepositorioContas {
+    private HashMap<String, ContaCorrente> contas;
+
     private int agencia = 1;
-    private int numeroConta;
     private int digito = new Random().nextInt(10);
     private final String theKeeper = "contas.json";
-    private ContaCorrente contaLogada;
 
-    public ContaCorrente getContaLogada() {
-        return contaLogada;
-    }
 
-    public void setContaLogada(ContaCorrente contaLogada) {
-        this.contaLogada = contaLogada;
-    }
-
-    private boolean logado = false;
-
-    public boolean isLogado() {
-        return logado;
-    }
-
-    public void setLogado(boolean logado) {
-        this.logado = logado;
-    }
-
-    public Banco(Map<String, ContaCorrente> contas) {
+    public RepositorioContas(HashMap<String, ContaCorrente> contas) {
         this.contas = contas;
-        this.numeroConta = getUltimaContaCriada();
+        loadContas();
+    }
+    private void loadContas() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(theKeeper))) {
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                Gson gson = new Gson();
+                Type type = new TypeToken<ContaCorrente>() {}.getType();
+                ContaCorrente conta = gson.fromJson(line, type);
+                String key = conta.getAgencia() + "/" + conta.getNumeroConta() + "-" + conta.getDigito();
+                contas.put(key, conta);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private int getUltimaContaCriada() {
@@ -61,10 +59,8 @@ public class Banco {
 
         return numeroConta;
     }
-
-
-    public ContaCorrente getConta(int agencia, int numero, int digito) {
-        String key = agencia + "/" + numero + "-" + digito;
+    public ContaCorrente getConta(int agencia, int numeroConta, int digito) {
+        String key = agencia + "/" + numeroConta + "-" + digito;
         return contas.get(key);
     }
 
@@ -75,7 +71,7 @@ public class Banco {
 
     public void abrirConta(String nome, String documento, String telefone, String email, String senha) {
         Pessoa cliente = new Pessoa(nome, documento, telefone, email);
-        this.numeroConta++;
+        int numeroConta = getUltimaContaCriada() + 1;
         ContaCorrente conta = new ContaCorrente(agencia, numeroConta, digito, cliente, senha);
         addConta(conta);
         Gson gson = new Gson();
@@ -86,22 +82,26 @@ public class Banco {
             e.printStackTrace();
         }
     }
-    public boolean logar(int agencia, int numeroConta, int digito, String senha) {
+    public void atualizaLinhaJson(ContaCorrente conta) {
+        Gson gson = new Gson();
         try (BufferedReader reader = new BufferedReader(new FileReader(theKeeper))) {
             String line;
-            Gson gson = new Gson();
+            StringBuilder fileContent = new StringBuilder();
             while ((line = reader.readLine()) != null) {
-                Type type = new TypeToken<ContaCorrente>() {}.getType();
-                ContaCorrente conta = gson.fromJson(line, type);
-                if (conta.getAgencia() == agencia && conta.getNumeroConta() == numeroConta && conta.getDigito() ==digito && conta.getSenha().equals(senha)) {
-                    setContaLogada(conta);
-                    logado = true;
-                    return true;
+                ContaCorrente c = gson.fromJson(line, ContaCorrente.class);
+                if (c.getAgencia() == conta.getAgencia()
+                        && c.getNumeroConta() == conta.getNumeroConta()
+                        && c.getDigito() == conta.getDigito()) {
+                    line = gson.toJson(conta);
                 }
+                fileContent.append(line).append("\n");
+            }
+            try (FileWriter writer = new FileWriter(theKeeper)) {
+                writer.write(fileContent.toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return false;
     }
+
 }
