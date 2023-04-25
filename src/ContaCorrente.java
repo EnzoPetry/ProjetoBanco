@@ -51,8 +51,8 @@ public class ContaCorrente {
         return titular;
     }
 
-    public boolean deposito(double valor) {
-        this.saldo = this.saldo + valor;
+    public boolean depositar(double valor) {
+        saldo += valor;
         return true;
     }
 
@@ -62,5 +62,17 @@ public class ContaCorrente {
             return true;
         }
         return false;
+    }
+    public void debitar(double valor) {
+        if (saldo >= valor) {
+            saldo -= valor;
+            System.out.println("Débito realizado com sucesso.");
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
+    public void creditar(double valor) {
+        saldo += valor;
+        System.out.println("Crédito realizado com sucesso.");
     }
 }

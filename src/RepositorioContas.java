@@ -67,6 +67,7 @@ public class RepositorioContas {
     public void addConta(ContaCorrente conta) {
         String key = conta.getAgencia() + "/" + conta.getNumeroConta() + "-" + conta.getDigito();
         contas.put(key, conta);
+        System.out.println("Conta Adicionada: " + key);
     }
 
     public void abrirConta(String nome, String documento, String telefone, String email, String senha) {
