@@ -23,9 +23,6 @@ public class ContaCorrente {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
 
     public int getAgencia() {
         return agencia;
@@ -37,10 +34,6 @@ public class ContaCorrente {
 
     public int getDigito() {
         return digito;
-    }
-
-    public Date getDataAbertura() {
-        return dataAbertura;
     }
 
     public String getSenha() {
@@ -63,16 +56,5 @@ public class ContaCorrente {
         }
         return false;
     }
-    public void debitar(double valor) {
-        if (saldo >= valor) {
-            saldo -= valor;
-            System.out.println("Débito realizado com sucesso.");
-        } else {
-            System.out.println("Saldo insuficiente.");
-        }
-    }
-    public void creditar(double valor) {
-        saldo += valor;
-        System.out.println("Crédito realizado com sucesso.");
-    }
+
 }

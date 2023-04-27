@@ -7,22 +7,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class RepositorioContas {
-    private HashMap<String, ContaCorrente> contas;
-
-    private int agencia = 1;
-    private int digito = new Random().nextInt(10);
+    private final HashMap<String, ContaCorrente> contas;
     private final String theKeeper = "contas.json";
 
 
     public RepositorioContas(HashMap<String, ContaCorrente> contas) {
         this.contas = contas;
-        loadContas();
+        carregarContas();
     }
-    private void loadContas() {
+    public void carregarContas() {
         try (BufferedReader reader = new BufferedReader(new FileReader(theKeeper))) {
             String line;
 
@@ -41,7 +37,7 @@ public class RepositorioContas {
     private int getUltimaContaCriada() {
         int numeroConta = 0;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("contas.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(theKeeper))) {
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -70,9 +66,11 @@ public class RepositorioContas {
         System.out.println("Conta Adicionada: " + key);
     }
 
-    public void abrirConta(String nome, String documento, String telefone, String email, String senha) {
-        Pessoa cliente = new Pessoa(nome, documento, telefone, email);
+    public void abrirConta(String tipoConta,String nome, String documento, String telefone, String email, String senha) {
+        Pessoa cliente = new Pessoa(tipoConta,nome,documento, telefone, email);
+        int digito = new Random().nextInt(10);
         int numeroConta = getUltimaContaCriada() + 1;
+        int agencia = 1013;
         ContaCorrente conta = new ContaCorrente(agencia, numeroConta, digito, cliente, senha);
         addConta(conta);
         Gson gson = new Gson();

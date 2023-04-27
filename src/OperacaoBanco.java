@@ -1,10 +1,8 @@
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class OperacaoBanco {
 
     private RepositorioContas repositorio;
-    private ContaCorrente contaOperacao;
     private ContaCorrente contaLogada;
 
     public OperacaoBanco(RepositorioContas repositorio) {
@@ -15,82 +13,104 @@ public class OperacaoBanco {
         Scanner s = new Scanner(System.in);
 
         System.out.println("\nVocê está abrindo uma nova conta com a Bradesco!\n");
-        System.out.println("Informe seu Nome completo para continuar:");
-        String nome = s.nextLine();
-        System.out.println("Informe seu documento CPF:");
-        String documento = s.nextLine();
-        System.out.println("Informe seu numero de telefone:");
-        String telefone = s.nextLine();
-        System.out.println("Além disso precisamos de seu e-mail para deixa-lo sempre ciente das novidades:");
-        String email = s.nextLine();
-        boolean confirmação = false;
+        System.out.println("Você quer abrir uma Conta Física ou Jurídica:");
+        String tipoConta = s.nextLine().toUpperCase();
+        String nome = "";
+        String documento = "";
+        String telefone = "";
+        String email = "";
+        if (tipoConta.equals("PF")) {
+            System.out.println("Informe seu Nome completo para continuar:");
+            nome = s.nextLine();
+            System.out.println("Informe seu documento CPF:");
+            documento = s.nextLine();
+            System.out.println("Informe seu numero de telefone:");
+            telefone = s.nextLine();
+            System.out.println("Além disso precisamos de seu e-mail para deixa-lo sempre ciente das novidades:");
+            email = s.nextLine();
+        } else if (tipoConta.equals("PJ")) {
+            System.out.println("Informe o nome da Empresa:");
+            nome = s.nextLine();
+            System.out.println("Informe seu documento CNPJ:");
+            documento = s.nextLine();
+            System.out.println("Informe o telefone empresarial:");
+            telefone = s.nextLine();
+            System.out.println("Insira o E-mail Administrativo:");
+            email = s.nextLine();
+        }
+        boolean confirmacao = false;
         String senha = "";
         System.out.println("Digite a Senha para sua nova Conta:");
-        while (!confirmação) {
+        while (!confirmacao) {
             senha = s.nextLine();
             System.out.println("Digite novamente sua Senha:");
             String senha2 = s.nextLine();
             if (senha.equals(senha2)) {
-                confirmação = true;
-            }else{
-                System.out.println(senha + " | " +senha2);
+                confirmacao = true;
+            } else {
+                System.out.println(senha + " | " + senha2);
                 System.out.println("Senhas não são iguais, insira novamente: ");
             }
         }
-        repositorio.abrirConta(nome, documento, telefone, email, senha);
+        repositorio.abrirConta(tipoConta, nome, documento, telefone, email, senha);
 
     }
 
-    public boolean login(int agencia, int numeroConta,int digito, String senha) {
+    public boolean login(int agencia, int numeroConta, int digito, String senha) {
         ContaCorrente conta = repositorio.getConta(agencia, numeroConta, digito);
         if (conta != null && conta.getSenha().equals(senha)) {
             contaLogada = conta;
-            System.out.println("Logado");
+            System.out.println("Logado\n");
             return true;
         } else {
-            System.out.println("Não Logado");
+            System.out.println("Não Logado\n");
             return false;
         }
     }
 
-    public void sacar(double valor) {
-        if (contaLogada != null) {
-            contaLogada.sacar(valor);
-            System.out.println(contaLogada.getSaldo());
+    public boolean sacar(double valor) {
+        if (contaLogada.sacar(valor)) {
             repositorio.atualizaLinhaJson(contaLogada);
-            System.out.println(contaLogada.getSaldo());
+            return true;
+        }
+        return false;
+    }
 
-        } else {
-            System.out.println("No account logged in.");
-        }
-    }
-    public void depositar(double valor) {
-        if (contaLogada != null) {
-            contaLogada.depositar(valor);
-            System.out.println(contaLogada.getSaldo());
+    public boolean depositar(double valor) {
+        if (contaLogada.depositar(valor)) {
             repositorio.atualizaLinhaJson(contaLogada);
-            System.out.println(contaLogada.getSaldo());
-        } else {
-            System.out.println("No account logged in.");
+            return true;
         }
+        return false;
+
     }
-    public void transferir(int agenciaDestino, int contaDestino, int digitoDestino, double valor) {
+
+    public boolean transferir(int agenciaDestino, int contaDestino, int digitoDestino, double valor) {
         ContaCorrente contaOrigem = contaLogada;
         ContaCorrente contaOperacao = repositorio.getConta(agenciaDestino, contaDestino, digitoDestino);
         if (contaOperacao == null) {
             System.out.println("Conta de destino não encontrada");
-            return;
+            return false;
         }
         if (contaOrigem.getSaldo() < valor) {
             System.out.println("Saldo insuficiente");
-            return;
+            return false;
         }
-        contaOrigem.debitar(valor);
-        contaOperacao.creditar(valor);
-        repositorio.atualizaLinhaJson(contaLogada);
-        repositorio.atualizaLinhaJson(contaOperacao);
+        if (contaOrigem.sacar(valor) && contaOperacao.depositar(valor)) {
+            System.out.println("Valor Adicionado na conta de " + contaLogada.getTitular().getNome());
+            repositorio.atualizaLinhaJson(contaLogada);
+            repositorio.atualizaLinhaJson(contaOperacao);
+            return true;
+        } else {
+            System.out.println("Erro na Transacao");
+            return false;
 
-        System.out.println("Transferência realizada com sucesso");
+        }
     }
+
+    ContaCorrente contaCorrente() {
+        return contaLogada;
+    }
+
 }
 

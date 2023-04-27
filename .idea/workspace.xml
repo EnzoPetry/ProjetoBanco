@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="01321520-dba3-4fba-a007-dd1c513ee2ed" name="Changes" comment="Salvar Conta Corrente">
-      <change afterPath="$PROJECT_DIR$/contas.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="01321520-dba3-4fba-a007-dd1c513ee2ed" name="Changes" comment="Finalizado">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson2.10.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Diagrama classes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Diagramas/Casos de Uso.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Diagramas/Classes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Diagramas/Diagramas.mdj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Diagramas/Sequencia 1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Diagramas/Sequencia 2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Diagramas/Sequencia 3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gson-2.10.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetoBanco.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetoBanco.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contas.json" beforeDir="false" afterPath="$PROJECT_DIR$/contas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetoBanco/ATM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoBanco/ATM.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetoBanco/Banco$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetoBanco/Banco.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetoBanco/BancoView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetoBanco/ContaCorrente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoBanco/ContaCorrente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetoBanco/Controlador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetoBanco/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoBanco/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetoBanco/Pessoa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetoBanco/Pessoa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ATM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ATM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BancoView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContaCorrente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controlador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ControladorBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ControladorBanco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OperacaoBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OperacaoBanco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RepositorioContas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RepositorioContas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -34,22 +68,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.20689656"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.20689656&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ProjetoBanco" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ProjetoBanco" />
@@ -57,8 +101,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -79,7 +135,49 @@
       <option name="project" value="LOCAL" />
       <updated>1682300984332</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Arquivos Ignorados">
+      <created>1682304868777</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682304868777</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Continuidade numero de Contas">
+      <created>1682305162232</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682305162232</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Sistema de Login">
+      <created>1682310402011</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682310402011</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Saque e Saldo(Não funcionando)">
+      <created>1682313261439</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682313261439</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Saque e Saldo Funcionando">
+      <created>1682399902594</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682399902594</updated>
+    </task>
+    <task id="LOCAL-00007" summary="FUNCIONANDO SAQUE,TRANSFERENCIA, DEPOSITO, LOGIN E COM MAIN SÓ COM INICIAR (BORA PROS DIAGRAMAS)">
+      <created>1682403571993</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682403571993</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,6 +194,23 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Salvar Conta Corrente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Salvar Conta Corrente" />
+    <MESSAGE value="Arquivos Ignorados" />
+    <MESSAGE value="Continuidade numero de Contas" />
+    <MESSAGE value="Sistema de Login" />
+    <MESSAGE value="Saque e Saldo(Não funcionando)" />
+    <MESSAGE value="Saque e Saldo Funcionando" />
+    <MESSAGE value="FUNCIONANDO SAQUE,TRANSFERENCIA, DEPOSITO, LOGIN E COM MAIN SÓ COM INICIAR (BORA PROS DIAGRAMAS)" />
+    <MESSAGE value="Finalizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizado" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

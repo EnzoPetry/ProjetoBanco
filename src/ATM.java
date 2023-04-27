@@ -4,6 +4,8 @@ import static java.lang.System.exit;
 
 public class ATM {
     private OperacaoBanco operacao;
+
+
     private boolean logado;
 
 
@@ -23,7 +25,7 @@ public class ATM {
 
     public void menuInicial() {
         while (true) {
-            System.out.println("Oque gostaria de fazer:\n\n1. Criar uma nova conta\n2. Realizar o Login\n3. Sair");
+            System.out.println("Oque gostaria de fazer:\n\n1. Criar uma nova conta\n2. Realizar o Login\n0. Sair");
             Scanner s = new Scanner(System.in);
             String opcao = s.nextLine();
 
@@ -33,20 +35,21 @@ public class ATM {
                     break;
                 case "2":
                     telaSenha();
-                    if (logado == true) {
-                        menuOpções();
+                    while(logado){
+                        menuOpcoes();
                     }
                     break;
-                case "3":
+                case "0":
                     exit(0);
                     break;
             }
         }
     }
 
-    public void menuOpções() {
+    public void menuOpcoes() {
+        telaInfo();
         Scanner s = new Scanner(System.in);
-        System.out.println("Oque deseja fazer: \n\n1. Sacar\n2. Depositar\n3. Tranferir");
+        System.out.println("Oque deseja fazer: \n\n1. Sacar\n2. Depositar\n3. Tranferir\n4. Informacoes Pessoais\n0. Sair");
         String opcao = s.nextLine();
 
         switch (opcao) {
@@ -58,6 +61,12 @@ public class ATM {
                 break;
             case "3":
                 telaTransferencia();
+                break;
+            case "4":
+                InfoPessoal();
+                break;
+            case "0":
+                logado = false;
                 break;
         }
 
@@ -82,17 +91,22 @@ public class ATM {
         Scanner s = new Scanner(System.in);
         System.out.println("Quanto quer sacar: ");
         double sacar = Double.parseDouble(s.nextLine());
-        operacao.sacar(sacar);
-        System.out.println("Realizado!");
-
+        if(operacao.sacar(sacar)) {
+            System.out.println("Realizado!");
+        }else{
+            System.out.println("Sem saldo suficiente");
+        }
     }
 
     private void telaDeposito() {
         Scanner s = new Scanner(System.in);
         System.out.println("Quanto quer depositar: ");
         double depositar = Double.parseDouble(s.nextLine());
-        operacao.depositar(depositar);
-        System.out.println("Realizado!");
+        if(operacao.depositar(depositar)) {
+            System.out.println("Realizado!");
+        }else{
+            System.out.println("Erro!");
+        }
 
     }
 
@@ -106,8 +120,27 @@ public class ATM {
         int digitoDestino = Integer.parseInt(s.nextLine());
         System.out.println("Quanto quer transferir: ");
         double transferir = Double.parseDouble(s.nextLine());
-        operacao.transferir(agenciaDestino, contaDestino, digitoDestino, transferir);
-        System.out.println("Transferência realizada!");
+        if (operacao.transferir(agenciaDestino, contaDestino, digitoDestino, transferir)){
+            System.out.println("Transferência realizada com sucesso");
+        }else{
+            System.out.println("Erro!");
+        }
 
+
+    }
+    public void telaInfo(){
+        System.out.println("Conta: " + operacao.contaCorrente().getAgencia() + "/" + operacao.contaCorrente().getNumeroConta()+ "-" + operacao.contaCorrente().getDigito());
+        System.out.println("Nome: " + operacao.contaCorrente().getTitular().getNome());
+        System.out.println("Saldo: " + operacao.contaCorrente().getSaldo() + "\n");
+    }
+    public void InfoPessoal(){
+        System.out.println("Nome: " + operacao.contaCorrente().getTitular().getNome());
+        System.out.println("Tipo conta: " + operacao.contaCorrente().getTitular().getTipoConta());
+        System.out.println("Documento: " + operacao.contaCorrente().getTitular().getDocumento());
+        System.out.println("E-mail: " + operacao.contaCorrente().getTitular().getEmail());
+        System.out.println("Telefone: " + operacao.contaCorrente().getTitular().getTelefone() + "\n");
+        Scanner s = new Scanner(System.in);
+        System.out.println("Press enter to continue.....");
+        s.nextLine();
     }
 }

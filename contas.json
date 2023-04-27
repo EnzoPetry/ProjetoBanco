@@ -1,6 +1,16 @@
-{"saldo":30.0,"agencia":1,"numeroConta":1,"digito":4,"dataAbertura":"Apr 25, 2023, 2:04:55 AM","senha":"123","titular":{"nome":"enzo","documento":"1","telefone":"1","email":"1"}}
+{"saldo":630.0,"agencia":1,"numeroConta":1,"digito":4,"dataAbertura":"Apr 25, 2023, 2:04:55 AM","senha":"123","titular":{"nome":"enzo","telefone":"1","email":"1","documento":"1"}}
 {"saldo":10.5,"agencia":1,"numeroConta":2,"digito":4,"dataAbertura":"Apr 25, 2023, 2:05:01 AM","senha":"123","titular":{"nome":"r","documento":"r","telefone":"r","email":"r"}}
 {"saldo":25.0,"agencia":1,"numeroConta":3,"digito":4,"dataAbertura":"Apr 25, 2023, 2:05:07 AM","senha":"123","titular":{"nome":"j","documento":"j","telefone":"j","email":"j"}}
 {"saldo":50.0,"agencia":1,"numeroConta":4,"digito":4,"dataAbertura":"Apr 25, 2023, 2:05:16 AM","senha":"123","titular":{"nome":"l","documento":"l","telefone":"l","email":"l"}}
 {"saldo":20.0,"agencia":1,"numeroConta":5,"digito":9,"dataAbertura":"Apr 25, 2023, 2:31:25 AM","senha":"123","titular":{"nome":"Enzo","documento":"86152661072","telefone":"2222","email":"EN"}}
 {"saldo":0.0,"agencia":1,"numeroConta":6,"digito":9,"dataAbertura":"Apr 25, 2023, 2:50:02 AM","senha":"123","titular":{"nome":"","documento":"","telefone":"","email":""}}
+{"saldo":3488.0,"agencia":1,"numeroConta":7,"digito":4,"dataAbertura":"Apr 26, 2023, 8:35:21 PM","senha":"123","titular":{"nome":"enzo","telefone":"saksakask","email":"akssakask","tipoConta":"PF","documento":"i1282821"}}
+{"saldo":450.0,"agencia":1,"numeroConta":8,"digito":4,"dataAbertura":"Apr 26, 2023, 8:35:34 PM","senha":"123","titular":{"nome":"","telefone":"","email":"","tipoConta":"PF","documento":""}}
+{"saldo":0.0,"agencia":1013,"numeroConta":9,"digito":2,"dataAbertura":"Apr 26, 2023, 8:40:53 PM","senha":"","titular":{"nome":"","telefone":"","email":"","tipoConta":"PF","documento":""}}
+{"saldo":0.0,"agencia":1013,"numeroConta":10,"digito":2,"dataAbertura":"Apr 26, 2023, 8:41:05 PM","senha":"","titular":{"nome":"","telefone":"","email":"","tipoConta":"PJ","documento":""}}
+{"saldo":0.0,"agencia":1013,"numeroConta":11,"digito":2,"dataAbertura":"Apr 26, 2023, 8:41:27 PM","senha":"","titular":{"nome":"","telefone":"","email":"","tipoConta":"PF","documento":""}}
+{"saldo":0.0,"agencia":1013,"numeroConta":12,"digito":2,"dataAbertura":"Apr 26, 2023, 8:42:17 PM","senha":"","titular":{"nome":"","telefone":"","email":"","tipoConta":"PF","documento":""}}
+{"saldo":0.0,"agencia":1013,"numeroConta":13,"digito":1,"dataAbertura":"Apr 26, 2023, 8:42:23 PM","senha":"","titular":{"nome":"","telefone":"","email":"","tipoConta":"PJ","documento":""}}
+{"saldo":0.0,"agencia":1013,"numeroConta":14,"digito":6,"dataAbertura":"Apr 26, 2023, 8:42:29 PM","senha":"","titular":{"nome":"","telefone":"","email":"","tipoConta":"PF","documento":""}}
+{"saldo":0.0,"agencia":1013,"numeroConta":15,"digito":7,"dataAbertura":"Apr 27, 2023, 3:07:42 AM","senha":"123","titular":{"nome":"enzo","telefone":"202011202","email":"email","tipoConta":"PF","documento":"921291921"}}
+{"saldo":0.0,"agencia":1013,"numeroConta":16,"digito":3,"dataAbertura":"Apr 27, 2023, 3:11:34 AM","senha":"","titular":{"nome":"","telefone":"","email":"","tipoConta":"","documento":""}}
